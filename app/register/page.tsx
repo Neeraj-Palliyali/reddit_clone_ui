@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Form, Formik } from "formik";
 import {
@@ -6,11 +7,11 @@ import {
   FormLabel,
   Input,
 } from "@chakra-ui/react";
-import { Wrapper } from "../components/wrapper";
+import Wrapper from "./layout";
 
 interface registerProps {}
 
-const Register: React.FC<registerProps> = ({}) => {
+export default async function Register({}: registerProps) {
   // The below import defines which components come from formik
   // import { Field, Form, Formik } from 'formik';
   return (
@@ -22,23 +23,20 @@ const Register: React.FC<registerProps> = ({}) => {
     >
       {({ values, handleChange }) => (
         <Wrapper variant="small">
-        <Form>
-          <FormControl>
-            <FormLabel htmlFor="username"> Username </FormLabel>
-            <Input
-              value={values.username}
-              onChange={handleChange}
-              id="username"
-              placeholder="username"
-            />
-            {/* <FormErrorMessage> {form.errors.username}</FormErrorMessage> */}
-          </FormControl>
-        </Form>
+          <Form>
+            <FormControl>
+              <FormLabel htmlFor="username"> Username </FormLabel>
+              <Input
+                value={values.username}
+                onChange={handleChange}
+                id="username"
+                placeholder="username"
+              />
+              {/* <FormErrorMessage> {form.errors.username}</FormErrorMessage> */}
+            </FormControl>
+          </Form>
         </Wrapper>
       )}
     </Formik>
   );
-};
-
-export default Register;
-
+}

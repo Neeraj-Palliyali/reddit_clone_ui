@@ -1,3 +1,4 @@
+"use client"
 import { Box } from "@chakra-ui/react";
 import { ReactNode } from "react";
 
@@ -6,7 +7,7 @@ interface WrapperProps {
   children?: ReactNode;
 }
 
-export const Wrapper: React.FC<WrapperProps> = ({ children, variant }) => {
+export default function Wrapper ({ children, variant }: WrapperProps) {
   return (
     <Box
       mt={8}
